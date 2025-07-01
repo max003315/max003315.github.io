@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suporte - 9D Casino</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
+
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="icons.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #ffffff;
+      }
+
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #00ff88;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .nav-link.active {
+        color: #00ff88;
+      }
+
+      .support-banner {
+        /* You might want to replace this with a specific support banner image */
+        background-image: url("imgs/support-banner.jpg");
+        background-size: cover;
+        background-position: center;
+        min-height: 320px;
+      }
+
+      .faq-item,
+      .contact-method {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 255, 136, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .faq-item:hover,
+      .contact-method:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-opacity-90 bg-[#1a1a2e] backdrop-blur-md z-50 py-4"
+    >
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="flex items-center">
+          <img src="imgs/logo.svg" alt="9D Casino" class="h-10" />
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link text-white hover:text-[#00ff88]"
+            >Início</a
+          >
+          <a href="games.html" class="nav-link text-white hover:text-[#00ff88]"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="nav-link text-white hover:text-[#00ff88]"
+            >Promoções</a
+          >
+          <a href="vip.html" class="nav-link text-white hover:text-[#00ff88]"
+            >VIP</a
+          >
+          <a
+            href="support.html"
+            class="nav-link text-white hover:text-[#00ff88] active"
+            >Suporte</a
+          >
+        </div>
+
+        <div class="flex space-x-4 items-center">
+          <div class="hidden md:flex space-x-4">
+            <button
+              class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+            >
+              Entrar
+            </button>
+            <button
+              class="px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+            >
+              Registrar
+            </button>
+          </div>
+          <button class="md:hidden text-2xl text-white" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      class="fixed top-0 right-0 h-full w-64 bg-[#1a1a2e] z-50 mobile-menu"
+      id="mobile-menu"
+    >
+      <div class="p-4">
+        <button class="text-white text-2xl mb-8" id="close-menu-button">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Início</a
+          >
+          <a
+            href="games.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Promoções</a
+          >
+          <a
+            href="vip.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >VIP</a
+          >
+          <a href="support.html" class="text-[#00ff88] transition duration-300"
+            >Suporte</a
+          >
+        </div>
+        <div class="mt-8 flex flex-col space-y-4">
+          <button
+            class="w-full px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+          >
+            Entrar
+          </button>
+          <button
+            class="w-full px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+          >
+            Registrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+      <!-- Banner Section -->
+      <section
+        class="support-banner flex items-center justify-center text-center px-4"
+      >
+        <div
+          class="bg-black bg-opacity-50 p-8 rounded-lg max-w-3xl mx-auto scroll-reveal"
+        >
+          <h1 class="text-4xl md:text-6xl font-bold text-white">
+            Centro de Atendimento ao Cliente
+          </h1>
+          <p class="text-xl text-gray-300 mt-4" style="transition-delay: 0.2s">
+            Estamos aqui para ajudar você a qualquer momento
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="py-20 bg-[#16213e]">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-center mb-16 scroll-reveal">
+            Perguntas Frequentes
+          </h2>
+          <div class="space-y-8">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item p-6 rounded-lg scroll-reveal">
+              <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                Como registrar uma conta?
+              </h3>
+              <p class="text-gray-300">
+                Clique no botão "Registrar" no canto superior direito do site,
+                preencha as informações necessárias e siga as instruções para
+                concluir o processo de registro.
+              </p>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div class="faq-item p-6 rounded-lg scroll-reveal">
+              <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                Como fazer um depósito?
+              </h3>
+              <p class="text-gray-300">
+                Faça login em sua conta, vá para a página "Depósito", selecione
+                seu método de pagamento preferido e siga as etapas.
+              </p>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div class="faq-item p-6 rounded-lg scroll-reveal">
+              <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                Como fazer um saque?
+              </h3>
+              <p class="text-gray-300">
+                Faça login em sua conta, vá para a página "Saque", insira o
+                valor do saque e suas informações bancárias, e envie a
+                solicitação.
+              </p>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div class="faq-item p-6 rounded-lg scroll-reveal">
+              <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                O que fazer se eu esquecer minha senha?
+              </h3>
+              <p class="text-gray-300">
+                Na página de login, clique em "Esqueci a senha", insira seu
+                e-mail de registro ou número de telefone e siga as instruções
+                para redefinir sua senha.
+              </p>
+            </div>
+            <!-- FAQ Item 5 -->
+            <div class="faq-item p-6 rounded-lg scroll-reveal">
+              <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                Como a imparcialidade do jogo é garantida?
+              </h3>
+              <p class="text-gray-300">
+                Usamos um Gerador de Números Aleatórios (RNG) certificado para
+                garantir a imparcialidade e aleatoriedade de todos os resultados
+                dos jogos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="py-20">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold text-center mb-16 scroll-reveal">
+            Contate-nos
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="contact-method p-8 rounded-2xl text-center scroll-reveal"
+            >
+              <i class="fas fa-comments text-4xl text-[#00ff88] mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-4">Suporte Online</h3>
+              <p class="text-gray-300 mb-4">
+                Disponível 24/7 online para responder às suas perguntas
+                instantaneamente.
+              </p>
+              <button
+                class="px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Converse Agora
+              </button>
+            </div>
+            <div
+              class="contact-method p-8 rounded-2xl text-center scroll-reveal"
+            >
+              <i class="fas fa-envelope text-4xl text-[#00ff88] mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-4">E-mail</h3>
+              <p class="text-gray-300 mb-4">
+                Envie um e-mail para
+                <a
+                  href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="52212722223d2026126b367c313d3f"
+                  >[email&#160;protected]</a
+                >
+                e responderemos o mais breve possível.
+              </p>
+              <a
+                href="/cdn-cgi/l/email-protection#fd8e888d8d928f89bdc499d39e9290"
+                class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >Enviar E-mail</a
+              >
+            </div>
+            <div
+              class="contact-method p-8 rounded-2xl text-center scroll-reveal"
+            >
+              <i class="fas fa-phone-alt text-4xl text-[#00ff88] mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-4">Suporte por Telefone</h3>
+              <p class="text-gray-300 mb-4">
+                Para assistência urgente, ligue para nossa linha direta.
+              </p>
+              <a
+                href="tel:+1234567890"
+                class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >Ligar</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1a2e] py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Sobre Nós</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Sobre a Empresa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Jogo Responsável</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Política de Privacidade</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Central de Ajuda</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Depósitos e Saques</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Fale Conosco</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Tipos de Jogo</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Caça-níqueis</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Cassino ao Vivo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Apostas Esportivas</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Contato</h4>
+            <ul class="space-y-2">
+              <li class="text-gray-400">
+                <i class="fas fa-envelope mr-2 text-[#00ff88]"></i>
+                <a
+                  href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="8efdfbfefee1fcfaceb7eaa0ede1e3"
+                  >[email&#160;protected]</a
+                >
+              </li>
+              <li class="text-gray-400">
+                <i class="fas fa-phone mr-2 text-[#00ff88]"></i> Suporte Online
+                24/7
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2023 9D Casino. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script>
+      // Scroll Reveal Animation
+      function revealOnScroll() {
+        const reveals = document.querySelectorAll(".scroll-reveal");
+
+        reveals.forEach((reveal) => {
+          const revealTop = reveal.getBoundingClientRect().top;
+          const revealPoint = 150;
+
+          if (revealTop < window.innerHeight - revealPoint) {
+            reveal.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // Mobile Menu
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const closeMenuButton = document.getElementById("close-menu-button");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+      });
+
+      closeMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

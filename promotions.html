@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promoções - 9D Casino</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
+
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="icons.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #ffffff;
+      }
+
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #00ff88;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .nav-link.active {
+        color: #00ff88;
+      }
+
+      .promo-banner {
+        background-size: cover;
+        background-position: center;
+        min-height: 320px;
+      }
+
+      .promo-card-large {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 255, 136, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .promo-card-large:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-opacity-90 bg-[#1a1a2e] backdrop-blur-md z-50 py-4"
+    >
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="flex items-center">
+          <img src="imgs/logo.svg" alt="9D Casino" class="h-10" />
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link text-white hover:text-[#00ff88]"
+            >Início</a
+          >
+          <a href="games.html" class="nav-link text-white hover:text-[#00ff88]"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="nav-link text-white hover:text-[#00ff88] active"
+            >Promoções</a
+          >
+          <a href="vip.html" class="nav-link text-white hover:text-[#00ff88]"
+            >VIP</a
+          >
+          <a
+            href="support.html"
+            class="nav-link text-white hover:text-[#00ff88]"
+            >Suporte</a
+          >
+        </div>
+
+        <div class="flex space-x-4 items-center">
+          <div class="hidden md:flex space-x-4">
+            <button
+              class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+            >
+              Entrar
+            </button>
+            <button
+              class="px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+            >
+              Registrar
+            </button>
+          </div>
+          <button class="md:hidden text-2xl text-white" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      class="fixed top-0 right-0 h-full w-64 bg-[#1a1a2e] z-50 mobile-menu"
+      id="mobile-menu"
+    >
+      <div class="p-4">
+        <button class="text-white text-2xl mb-8" id="close-menu-button">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Início</a
+          >
+          <a
+            href="games.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="text-[#00ff88] transition duration-300"
+            >Promoções</a
+          >
+          <a
+            href="vip.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >VIP</a
+          >
+          <a
+            href="support.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Suporte</a
+          >
+        </div>
+        <div class="mt-8 flex flex-col space-y-4">
+          <button
+            class="w-full px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+          >
+            Entrar
+          </button>
+          <button
+            class="w-full px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+          >
+            Registrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+      <!-- Banner Section -->
+      <section
+        class="promo-banner icon icon-promotions-banner flex items-center justify-center text-center px-4"
+      >
+        <div
+          class="bg-black bg-opacity-50 p-8 rounded-lg max-w-3xl mx-auto scroll-reveal"
+        >
+          <h1 class="text-4xl md:text-6xl font-bold text-white">
+            Ofertas Exclusivas, Esperando por Você
+          </h1>
+          <p class="text-xl text-gray-300 mt-4" style="transition-delay: 0.2s">
+            Recompensas e eventos especiais projetados para nossos valiosos
+            jogadores
+          </p>
+        </div>
+      </section>
+
+      <!-- Promotions List Section -->
+      <section class="py-20 bg-[#16213e]">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-center mb-16 scroll-reveal">
+            Últimas Ofertas Promocionais
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Promo Card 1 -->
+            <div
+              class="promo-card-large rounded-2xl overflow-hidden md:flex items-center scroll-reveal"
+            >
+              <img
+                src="imgs/baccarat01.jpg"
+                alt="Bônus de Primeiro Depósito para Novos Membros"
+                class="w-full md:w-1/3 h-64 md:h-full object-cover flex-shrink-0"
+              />
+              <div class="p-8">
+                <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                  Bônus de Primeiro Depósito para Novos Membros
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  100% de bônus no primeiro depósito, até $3.000! Registre-se
+                  agora, duplique seus fundos de jogo e comece com o pé direito.
+                </p>
+                <button
+                  class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >
+                  Saiba Mais
+                </button>
+              </div>
+            </div>
+            <!-- Promo Card 2 -->
+            <div
+              class="promo-card-large rounded-2xl overflow-hidden md:flex items-center scroll-reveal"
+            >
+              <img
+                src="imgs/vip.jpg"
+                alt="Cashback Exclusivo VIP"
+                class="w-full md:w-1/3 h-64 md:h-full object-cover flex-shrink-0"
+              />
+              <div class="p-8">
+                <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                  Cashback Exclusivo VIP
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Torne-se um membro VIP e desfrute de até 1,5% de cashback
+                  semanal ilimitado. Quanto mais você aposta, mais você recebe.
+                </p>
+                <button
+                  class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >
+                  Ver Detalhes VIP
+                </button>
+              </div>
+            </div>
+            <!-- Promo Card 3 -->
+            <div
+              class="promo-card-large rounded-2xl overflow-hidden md:flex items-center scroll-reveal"
+            >
+              <img
+                src="imgs/load.jpg"
+                alt="Bônus de Recarga Diária de 20%"
+                class="w-full md:w-1/3 h-64 md:h-full object-cover flex-shrink-0"
+              />
+              <div class="p-8">
+                <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                  Bônus de Recarga Diária de 20%
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Membros podem solicitar um bônus de recarga de 20% em seus
+                  depósitos diários para manter a emoção do jogo.
+                </p>
+                <button
+                  class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >
+                  Solicitar Agora
+                </button>
+              </div>
+            </div>
+            <!-- Promo Card 4 -->
+            <div
+              class="promo-card-large rounded-2xl overflow-hidden md:flex items-center scroll-reveal"
+            >
+              <img
+                src="imgs/bir.jpg"
+                alt="Bônus de Aniversário"
+                class="w-full md:w-1/3 h-64 md:h-full object-cover flex-shrink-0"
+              />
+              <div class="p-8">
+                <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                  Bônus de Aniversário
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  No seu mês especial, enviaremos um bônus de aniversário para
+                  celebrar com você.
+                </p>
+                <button
+                  class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >
+                  Resgatar Bônus
+                </button>
+              </div>
+            </div>
+            <!-- Promo Card 5 -->
+            <div
+              class="promo-card-large rounded-2xl overflow-hidden md:flex items-center scroll-reveal"
+            >
+              <img
+                src="imgs/fr.jpg"
+                alt="Bônus de Indicação de Amigos"
+                class="w-full md:w-1/3 h-64 md:h-full object-cover flex-shrink-0"
+              />
+              <div class="p-8">
+                <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                  Bônus de Indicação de Amigos
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Convide amigos para se juntarem e você e seus amigos receberão
+                  bônus de indicação para compartilhar a diversão do jogo.
+                </p>
+                <button
+                  class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >
+                  Convidar Agora
+                </button>
+              </div>
+            </div>
+            <!-- Promo Card 6 -->
+            <div
+              class="promo-card-large rounded-2xl overflow-hidden md:flex items-center scroll-reveal"
+            >
+              <img
+                src="imgs/solt.jpg"
+                alt="Torneio de Caça-níqueis"
+                class="w-full md:w-1/3 h-64 md:h-full object-cover flex-shrink-0"
+              />
+              <div class="p-8">
+                <h3 class="text-2xl font-semibold mb-2 text-[#00ff88]">
+                  Torneio de Caça-níqueis
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Participe do nosso torneio semanal de caça-níqueis, compita
+                  com os melhores e concorra a grandes prêmios.
+                </p>
+                <button
+                  class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+                >
+                  Participar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subscription Section -->
+      <section class="py-20">
+        <div class="container mx-auto px-4 text-center">
+          <div class="max-w-2xl mx-auto scroll-reveal">
+            <i
+              class="fas fa-envelope-open-text text-4xl text-[#00ff88] mb-4"
+            ></i>
+            <h2 class="text-3xl font-bold mb-4">
+              Assine nossa Newsletter para as Últimas Notícias
+            </h2>
+            <p class="text-gray-400 mb-8">
+              Seja o primeiro a saber sobre nossas últimas ofertas exclusivas,
+              lançamentos de novos jogos e eventos especiais. Não perca nada!
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+              <input
+                type="email"
+                placeholder="Digite seu e-mail"
+                class="flex-grow px-4 py-3 rounded-full bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#00ff88]"
+              />
+              <button
+                type="submit"
+                class="px-8 py-3 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Assinar Agora
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1a2e] py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Sobre Nós</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Sobre a Empresa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Jogo Responsável</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Política de Privacidade</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Central de Ajuda</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Depósitos e Saques</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Fale Conosco</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Tipos de Jogo</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Caça-níqueis</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Cassino ao Vivo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Apostas Esportivas</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Contato</h4>
+            <ul class="space-y-2">
+              <li class="text-gray-400">
+                <i class="fas fa-envelope mr-2 text-[#00ff88]"></i>
+                <a
+                  href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="64171114140b1610245d004a070b09"
+                  >[email&#160;protected]</a
+                >
+              </li>
+              <li class="text-gray-400">
+                <i class="fas fa-phone mr-2 text-[#00ff88]"></i> Suporte Online
+                24/7
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2023 9D Casino. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script>
+      // Scroll Reveal Animation
+      function revealOnScroll() {
+        const reveals = document.querySelectorAll(".scroll-reveal");
+
+        reveals.forEach((reveal) => {
+          const revealTop = reveal.getBoundingClientRect().top;
+          const revealPoint = 150;
+
+          if (revealTop < window.innerHeight - revealPoint) {
+            reveal.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // Mobile Menu
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const closeMenuButton = document.getElementById("close-menu-button");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+      });
+
+      closeMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

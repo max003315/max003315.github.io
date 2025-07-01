@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nossos Jogos - 9D Casino</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #ffffff;
+      }
+
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #00ff88;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .nav-link.active {
+        color: #00ff88;
+      }
+
+      .game-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .game-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .game-card .p-6 {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .game-card p {
+        flex-grow: 1;
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-opacity-90 bg-[#1a1a2e] backdrop-blur-md z-50 py-4"
+    >
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="flex items-center">
+          <img src="imgs/logo.svg" alt="9D Casino" class="h-10" />
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link text-white hover:text-[#00ff88]"
+            >Início</a
+          >
+          <a
+            href="games.html"
+            class="nav-link text-white hover:text-[#00ff88] active"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="nav-link text-white hover:text-[#00ff88]"
+            >Promoções</a
+          >
+          <a href="vip.html" class="nav-link text-white hover:text-[#00ff88]"
+            >VIP</a
+          >
+          <a
+            href="support.html"
+            class="nav-link text-white hover:text-[#00ff88]"
+            >Suporte</a
+          >
+        </div>
+
+        <div class="flex space-x-4 items-center">
+          <div class="hidden md:flex space-x-4">
+            <button
+              class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+            >
+              Entrar
+            </button>
+            <button
+              class="px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+            >
+              Registrar
+            </button>
+          </div>
+          <button class="md:hidden text-2xl text-white" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      class="fixed top-0 right-0 h-full w-64 bg-[#1a1a2e] z-50 mobile-menu"
+      id="mobile-menu"
+    >
+      <div class="p-4">
+        <button class="text-white text-2xl mb-8" id="close-menu-button">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Início</a
+          >
+          <a href="games.html" class="text-[#00ff88] transition duration-300"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Promoções</a
+          >
+          <a
+            href="vip.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >VIP</a
+          >
+          <a
+            href="support.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Suporte</a
+          >
+        </div>
+        <div class="mt-8 flex flex-col space-y-4">
+          <button
+            class="w-full px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+          >
+            Entrar
+          </button>
+          <button
+            class="w-full px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+          >
+            Registrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content: Games -->
+    <main class="pt-28 pb-20 bg-[#16213e]">
+      <div class="container mx-auto px-4">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-center mb-4 text-white scroll-reveal"
+        >
+          Explore Nosso Mundo de Jogos
+        </h1>
+        <p class="text-lg text-gray-400 text-center mb-16 scroll-reveal">
+          Do clássico ao inovador, oferecemos a mais diversificada seleção de
+          jogos para satisfazer as necessidades de todos os jogadores.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Game Card 1: 老虎機 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/slot-machine01.jpg"
+              alt="老虎機"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Caça-níqueis</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Centenas de caça-níqueis com temas variados, gráficos incríveis
+                e jackpots enormes. Cada rodada pode trazer uma grande surpresa.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Card 2: 百家樂 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/baccarat01.jpg"
+              alt="百家樂"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Bacará ao Vivo</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Interaja com dealers profissionais em tempo real e experimente
+                uma atmosfera de cassino imersiva. Várias opções de mesa para o
+                jogo de bacará mais autêntico.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Card 3: 德州撲克 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/poker01.jpg"
+              alt="德州撲克"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Poker Texas Hold'em</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Desafie jogadores de todo o mundo e mostre sua estratégia e
+                habilidade. De mesas para iniciantes a mesas de apostas altas,
+                sempre há um jogo para você.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Card 4: 輪盤 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/roulette01.jpg"
+              alt="輪盤"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Roleta ao Vivo</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Assista a roleta girar e sinta a emoção. Oferecemos roleta
+                europeia, americana e outras variações para o seu prazer
+                clássico de cassino.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Card 5: 體育博彩 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/sports.jpg"
+              alt="體育博彩"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Apostas Esportivas</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Cobrimos os principais eventos esportivos globais, oferecendo as
+                odds mais competitivas e uma variedade de opções de apostas para
+                torcer pelo seu time.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Card 6: 捕魚遊戲 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/fishing.jpg"
+              alt="捕魚遊戲"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Jogos de Pesca</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Jogo estilo arcade com gráficos requintados e operação simples.
+                Mire e atire em uma variedade de criaturas marinhas para ganhar
+                grandes recompensas.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Card 7: 彩票遊戲 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/lottery.jpg"
+              alt="彩票遊戲"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Jogos de Loteria</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Oferecemos vários jogos de loteria oficiais. Sorteios rápidos e
+                justos para realizar seu sonho de ganhar.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Card 8: 二十一點 -->
+          <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+            <img
+              src="imgs/blackjack.jpg"
+              alt="二十一點"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Blackjack</h3>
+              <p class="text-gray-300 text-sm mb-4">
+                Desafie o dealer e tente chegar o mais perto possível de 21. Um
+                jogo de cartas clássico que testa sua estratégia e tomada de
+                decisão.
+              </p>
+              <button
+                class="w-full mt-auto px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+              >
+                Jogue Agora
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1a2e] py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Sobre Nós</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Sobre a Empresa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Jogo Responsável</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Política de Privacidade</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Central de Ajuda</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Depósitos e Saques</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Fale Conosco</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Tipos de Jogo</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Caça-níqueis</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Cassino ao Vivo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Apostas Esportivas</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Contato</h4>
+            <ul class="space-y-2">
+              <li class="text-gray-400">
+                <i class="fas fa-envelope mr-2 text-[#00ff88]"></i>
+                <a
+                  href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="8ffcfaffffe0fdfbcfb6eba1ece0e2"
+                  >[email&#160;protected]</a
+                >
+              </li>
+              <li class="text-gray-400">
+                <i class="fas fa-phone mr-2 text-[#00ff88]"></i> Suporte Online
+                24/7
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2023 9D Casino. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script>
+      // Scroll Reveal Animation
+      function revealOnScroll() {
+        const reveals = document.querySelectorAll(".scroll-reveal");
+
+        reveals.forEach((reveal) => {
+          const revealTop = reveal.getBoundingClientRect().top;
+          const revealPoint = 150;
+
+          if (revealTop < window.innerHeight - revealPoint) {
+            reveal.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // Mobile Menu
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const closeMenuButton = document.getElementById("close-menu-button");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+      });
+
+      closeMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
