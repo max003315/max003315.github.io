@@ -1,195 +1,561 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+  <!-- Open Graph 协议 -->
+  <meta
+    property="og:title"
+    content="9D.com ⭐️ Plataforma de Apostas Online 2025"
+  />
+  <meta
+    property="og:description"
+    content="🎰 9D.com - Cadastre-se AGORA e ganhe até 8.888K em bônus! 💰 Rodadas grátis, cashback ilimitado e chances de enriquecer rápido! Jogue nos melhores cassinos online com altíssimas taxas de retorno. Não perca essa oportunidade – Clique e cadastre-se hoje mesmo!"
+  />
+  <meta property="og:image:width" content="320" />
+  <meta property="og:image:height" content="320" />
+  <meta property="og:image" content="imgs/fishing.jpg" />
+  <meta property="og:url" content="https://9d6.top/imgs/fishing.jpg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta
+    name="twitter:title"
+    content="9D.com ⭐️ Plataforma de Apostas Online 2025"
+  />
+  <meta
+    name="twitter:description"
+    content="🎰 9D.com - Cadastre-se AGORA e ganhe até 8.888K em bônus! 💰 Rodadas grátis, cashback ilimitado e chances de enriquecer rápido! Jogue nos melhores cassinos online com altíssimas taxas de retorno. Não perca essa oportunidade – Clique e cadastre-se hoje mesmo!"
+  />
+  <meta property="twitter:image:width" content="320" />
+  <meta property="twitter:image:height" content="320" />
+  <meta name="twitter:image" content="imgs/fishing.jpg" />
+  <meta name="twitter:url" content="https://9d6.top/imgs/fishing.jpg" />
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="林東旭的個人簡介與前端技能展示" />
-    <link rel="icon" href="favicon.ico" />
-    <title>第一個網頁</title>
-<style>body {
-    font-family: sans-serif;
-    max-width: 700px;
-    margin: auto;
-    padding: 1.5rem;
-    line-height: 1.6;
-}
+    <title>9D Casino - A Melhor Plataforma de Apostas Online</title>
 
-header {
-    background: white;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem;
-}
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-.navbar {
-    display: flex;
-    padding: 1rem;
-    align-items: center;
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-    justify-content: space-between;
-}
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
 
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="icons.css" />
 
-.navbar .navbar_nav {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 1rem;
-    width: 100%;
-    justify-content: space-between;
-}
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
-.navbar .navbar_nav li a {
-    text-decoration: none;
-    color: #333;
-}
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 1.5rem;
-}
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #ffffff;
+      }
 
-.card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-}
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
 
-.headshot {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-}
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #00ff88;
+        transition: width 0.3s ease;
+      }
 
-
-
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.profile .info {
-    flex: 1;
-}
-
-.skill_ul {
-    padding-left: 1.5rem;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.skill_ul li {
-    width: calc(50% - 0.5rem);
-}
-
-.contact_form {
-    margin-top: 2rem;
-}
-
-.contact_form input,
-textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-}
-
-.contact_form button {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-.contact_form button:hover {
-    background: #8ea4e0;
-}
-
-
-@media (max-width:768px) {
-    .profile {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .headshot {
+      .nav-link:hover::after,
+      .nav-link.active::after {
         width: 100%;
-        /* height: auto; */
-        /* max-height: 150px; */
-        max-width: 150px;
-        object-fit: cover;
+      }
 
-    }
+      .nav-link.active {
+        color: #00ff88;
+      }
 
-    .contact_form input,
-    textarea {
-        width: 100%;
-    }
+      .hero-section {
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 255, 136, 0.1) 0%,
+          rgba(26, 26, 46, 0) 70%
+        );
+      }
 
-    .skill_ul li {
-        width: 100%;
-        /* 手機單欄 */
-    }
-}</style>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <ul class="navbar_nav">
-          <li><a href="#card">Card</a></li>
-          <li><a href="#skill">Skill</a></li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-          <li>
-            <a href="#portfolio">Portfolio</a>
-          </li>
-        </ul>
-      </nav>
-      <h1>林東旭</h1>
-      <p>初階前端工程師</p>
-    </header>
-    <main class="container">
-      <section class="card" id="card">
-        <div class="profile">
-          <img src="./640.jpeg" alt="大頭照" srcset="" class="headshot" />
-          <div class="info">
-            <h2>關於我</h2>
-            <p>我熱愛設計與前端技術</p>
+      .game-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .game-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .promotion-card {
+        background: linear-gradient(
+          45deg,
+          rgba(0, 255, 136, 0.1) 0%,
+          rgba(26, 26, 46, 0.3) 100%
+        );
+        border: 1px solid rgba(0, 255, 136, 0.2);
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      /* Swiper Customization */
+      .hero-swiper .swiper-pagination-bullet-active {
+        background: #00ff88;
+      }
+      .hero-swiper .swiper-button-next,
+      .hero-swiper .swiper-button-prev {
+        color: #00ff88;
+      }
+      .hero-swiper .swiper-slide {
+        display: flex;
+      }
+    </style></head
+  ><title>9D.COM- Criação de Sites Profissionais e Lojas Virtuais</title>
+  <link rel="icon" type="image/x-icon" href="imgs/9dealer.png" />
+  <body class="min-h-screen">
+    <!-- Navbar -->
+    <nav
+      class="fixed w-full bg-opacity-90 bg-[#1a1a2e] backdrop-blur-md z-50 py-4"
+    >
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="flex items-center">
+          <img src="imgs/logo.svg" alt="9D Casino" class="h-10" />
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="index.html"
+            class="nav-link text-white hover:text-[#00ff88] active"
+            >Início</a
+          >
+          <a href="games.html" class="nav-link text-white hover:text-[#00ff88]"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="nav-link text-white hover:text-[#00ff88]"
+            >Promoções</a
+          >
+          <a href="vip.html" class="nav-link text-white hover:text-[#00ff88]"
+            >VIP</a
+          >
+          <a
+            href="support.html"
+            class="nav-link text-white hover:text-[#00ff88]"
+            >Suporte</a
+          >
+        </div>
+
+        <div class="flex space-x-4 items-center">
+          <div class="hidden md:flex space-x-4">
+            <button
+              class="px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+            >
+              Entrar
+            </button>
+            <button
+              class="px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+            >
+              Registrar
+            </button>
+          </div>
+          <button class="md:hidden text-2xl text-white" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      class="fixed top-0 right-0 h-full w-64 bg-[#1a1a2e] z-50 mobile-menu"
+      id="mobile-menu"
+    >
+      <div class="p-4">
+        <button class="text-white text-2xl mb-8" id="close-menu-button">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col space-y-4">
+          <a href="index.html" class="text-[#00ff88] transition duration-300"
+            >Início</a
+          >
+          <a
+            href="games.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Jogos</a
+          >
+          <a
+            href="promotions.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Promoções</a
+          >
+          <a
+            href="vip.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >VIP</a
+          >
+          <a
+            href="support.html"
+            class="text-white hover:text-[#00ff88] transition duration-300"
+            >Suporte</a
+          >
+        </div>
+        <div class="mt-8 flex flex-col space-y-4">
+          <button
+            class="w-full px-6 py-2 rounded-full bg-transparent border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88] hover:text-white transition duration-300"
+          >
+            Entrar
+          </button>
+          <button
+            class="w-full px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300"
+          >
+            Registrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="swiper-container hero-swiper w-full">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <h1 class="text-5xl md:text-6xl font-bold leading-tight">Experimente a Melhor<br><span class="text-[#00ff88]">Plataforma de Apostas Online</span></h1>
+                            <p class="text-xl text-gray-300">Desfrute de uma vasta seleção de jogos, pagamentos instantâneos e suporte ao cliente profissional 24/7</p>
+                            <div class="flex space-x-4"><button class="px-8 py-3 rounded-full bg-[#00ff88] text-white text-lg hover:bg-[#00cc6a] transition duration-300">Comece Agora</button><button class="px-8 py-3 rounded-full bg-transparent border border-white text-white text-lg hover:bg-white hover:text-[#1a1a2e] transition duration-300">Saiba Mais</button></div>
+                        </div>
+                        <div class="relative"><img src="imgs/hero-image.svg" alt="Casino Games" class="w-full"></div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <h1 class="text-5xl md:text-6xl font-bold leading-tight">Dealers ao Vivo<br><span class="text-[#00ff88]">Experiência Imersiva</span></h1>
+                            <p class="text-xl text-gray-300">Interaja com dealers profissionais ao vivo e desfrute da atmosfera mais autêntica de cassino.</p>
+                            <div class="flex space-x-4"><a href="games.html" class="px-8 py-3 rounded-full bg-[#00ff88] text-white text-lg hover:bg-[#00cc6a] transition duration-300">Ir para o Cassino ao Vivo</a></div>
+                        </div>
+                        <div class="relative h-full min-h-[400px] w-full"><div class="relative"><img src="imgs/9dealer.png" alt="Casino dealer" class="w-full"></div></div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <h1 class="text-5xl md:text-6xl font-bold leading-tight">Jackpots Enormes<br><span class="text-[#00ff88]">Esperam por Você</span></h1>
+                            <p class="text-xl text-gray-300">Participe dos nossos jogos de caça-níqueis, ganhe com uma única rodada e conquiste prêmios que podem mudar sua vida.</p>
+                            <div class="flex space-x-4"><a href="promotions.html" class="px-8 py-3 rounded-full bg-[#00ff88] text-white text-lg hover:bg-[#00cc6a] transition duration-300">Ver Últimas Promoções</a></div>
+                        </div>
+                        <div class="relative"><img src="imgs/Jackpot.svg" alt="Casino Games" class="w-full"></div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>  
+    <!-- Features Section -->
+
+    <section class="py-20 bg-[#16213e]">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          Por que nos escolher
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="game-card p-8 rounded-2xl text-center scroll-reveal bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10"
+          >
+            <i class="fas fa-shield-alt text-4xl text-[#00ff88] mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-4">Seguro e Confiável</h3>
+            <p class="text-gray-300">
+              Tecnologia de criptografia para sua segurança.
+            </p>
+          </div>
+          <div
+            class="game-card p-8 rounded-2xl text-center scroll-reveal bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10"
+          >
+            <i class="fas fa-clock text-4xl text-[#00ff88] mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-4">Suporte 24/7</h3>
+            <p class="text-gray-300">Atendimento ao cliente a qualquer hora.</p>
+          </div>
+          <div
+            class="game-card p-8 rounded-2xl text-center scroll-reveal bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10"
+          >
+            <i class="fas fa-wallet text-4xl text-[#00ff88] mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-4">Pagamentos Rápidos</h3>
+            <p class="text-gray-300">Depósitos e saques instantâneos.</p>
           </div>
         </div>
-      </section>
-      <section class="skill" id="skill">
-        <h2>技能列表</h2>
-        <ul class="skill_ul">
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>ES6</li>
-        </ul>
-      </section>
-      <section class="contact" id="contact">
-        <h2>聯絡我</h2>
-        <form class="contact_form" method="post" action="#">
-          <label for="name">姓名</label>
-          <input type="text" id="name" name="name" required />
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-          <label for="message">留言</label>
-          <textarea name="message" id="message" required></textarea>
-          <button type="submit">送出</button>
-        </form>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2025林東旭</p>
+      </div>
+    </section>
+    <!-- Games Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Jogos Populares</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+                    <div class="relative">
+                        <img src="imgs/slot-machine.jpg" alt="老虎機" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Caça-níqueis</h3>
+                            <p class="text-gray-300 text-sm">Jogos de caça-níqueis clássicos e emocionantes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+                    <div class="relative">
+                        <img src="imgs/baccarat.jpg" alt="百家樂" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Bacará</h3>
+                            <p class="text-gray-300 text-sm">O jogo de cassino ao vivo mais popular</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+                    <div class="relative">
+                        <img src="imgs/poker.jpg" alt="德州撲克" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Poker Texas Hold'em</h3>
+                            <p class="text-gray-300 text-sm">A combinação perfeita de estratégia e sorte</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card rounded-2xl overflow-hidden scroll-reveal">
+                    <div class="relative">
+                        <img src="imgs/roulette.jpg" alt="輪盤" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Roleta</h3>
+                            <p class="text-gray-300 text-sm">Um jogo clássico indispensável no cassino</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Promotions Section -->
+    <section class="py-20 bg-[#16213e]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Últimas Promoções</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="promotion-card p-8 rounded-2xl scroll-reveal">
+                    <div class="flex items-start space-x-6">
+                        <div class="text-[#00ff88] text-4xl">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Bônus de Boas-Vindas para Novos Membros</h3>
+                            <p class="text-gray-300 mb-4">Bônus de 100% no primeiro depósito, até $1.000</p>
+                            <button class="px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300">
+                                Resgatar Agora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="promotion-card p-8 rounded-2xl scroll-reveal">
+                    <div class="flex items-start space-x-6">
+                        <div class="text-[#00ff88] text-4xl">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Cashback Semanal</h3>
+                            <p class="text-gray-300 mb-4">Cashback semanal de até 1.2% sem limite</p>
+                            <button class="px-6 py-2 rounded-full bg-[#00ff88] text-white hover:bg-[#00cc6a] transition duration-300">
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1a2e] py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Sobre Nós</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Sobre a Empresa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Jogo Responsável</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Política de Privacidade</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Central de Ajuda</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Depósitos e Saques</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Fale Conosco</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Tipos de Jogo</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Caça-níqueis</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Cassino ao Vivo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#00ff88] transition duration-300"
+                  >Apostas Esportivas</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Contato</h4>
+            <ul class="space-y-2">
+              <li class="text-gray-400">
+                <i class="fas fa-envelope mr-2 text-[#00ff88]"></i>
+                support@9d.com
+              </li>
+              <li class="text-gray-400">
+                <i class="fas fa-phone mr-2 text-[#00ff88]"></i> Suporte Online
+                24/7
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p class="text-gray-400">© 2023 9D Casino. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".hero-swiper", {
+        loop: true,
+        autoplay: { delay: 5000 },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // Scroll Reveal
+      function revealOnScroll() {
+        document.querySelectorAll(".scroll-reveal").forEach((el) => {
+          const top = el.getBoundingClientRect().top;
+          if (top < window.innerHeight - 150) el.classList.add("active");
+        });
+      }
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // Mobile Menu
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", () => {
+          document.getElementById("mobile-menu").classList.add("active");
+        });
+      document
+        .getElementById("close-menu-button")
+        .addEventListener("click", () => {
+          document.getElementById("mobile-menu").classList.remove("active");
+        });
+    </script>
   </body>
 </html>
