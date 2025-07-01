@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="林東旭的個人簡介與前端技能展示" />
+    <link rel="icon" href="favicon.ico" />
+    <title>第一個網頁</title>
+<style>body {
+    font-family: sans-serif;
+    max-width: 700px;
+    margin: auto;
+    padding: 1.5rem;
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+
+.navbar {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.navbar .navbar_nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.navbar .navbar_nav li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 1.5rem;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.headshot {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile .info {
+    flex: 1;
+}
+
+.skill_ul {
+    padding-left: 1.5rem;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.skill_ul li {
+    width: calc(50% - 0.5rem);
+}
+
+.contact_form {
+    margin-top: 2rem;
+}
+
+.contact_form input,
+textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.contact_form button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.contact_form button:hover {
+    background: #8ea4e0;
+}
+
+
+@media (max-width:768px) {
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .headshot {
+        width: 100%;
+        /* height: auto; */
+        /* max-height: 150px; */
+        max-width: 150px;
+        object-fit: cover;
+
+    }
+
+    .contact_form input,
+    textarea {
+        width: 100%;
+    }
+
+    .skill_ul li {
+        width: 100%;
+        /* 手機單欄 */
+    }
+}</style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul class="navbar_nav">
+          <li><a href="#card">Card</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+          <li>
+            <a href="#portfolio">Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+      <h1>林東旭</h1>
+      <p>初階前端工程師</p>
+    </header>
+    <main class="container">
+      <section class="card" id="card">
+        <div class="profile">
+          <img src="./img/640.jpeg" alt="大頭照" srcset="" class="headshot" />
+          <div class="info">
+            <h2>關於我</h2>
+            <p>我熱愛設計與前端技術</p>
+          </div>
+        </div>
+      </section>
+      <section class="skill" id="skill">
+        <h2>技能列表</h2>
+        <ul class="skill_ul">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>ES6</li>
+        </ul>
+      </section>
+      <section class="contact" id="contact">
+        <h2>聯絡我</h2>
+        <form class="contact_form" method="post" action="#">
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">留言</label>
+          <textarea name="message" id="message" required></textarea>
+          <button type="submit">送出</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025林東旭</p>
+    </footer>
+  </body>
+</html>
